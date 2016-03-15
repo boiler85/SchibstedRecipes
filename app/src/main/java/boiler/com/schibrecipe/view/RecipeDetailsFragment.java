@@ -20,6 +20,7 @@ import boiler.com.schibrecipe.controller.RecipeDetailsRetriever;
 import boiler.com.schibrecipe.model.FullRecipe;
 import boiler.com.schibrecipe.utils.ImageLoaderSingleton;
 
+// Fragment for single recipe view
 public class RecipeDetailsFragment extends Fragment implements RecipeDetailsRetriever.RecipeNotifier {
 
     private TextView mTitleTV;
@@ -28,7 +29,7 @@ public class RecipeDetailsFragment extends Fragment implements RecipeDetailsRetr
     private Button mViewInstructionsBtn;
     private Button mViewOriginalBtn;
     private TextView mPublisherTV;
-    private TextView mSocialScoteTV;
+    private TextView mSocialRankTV;
     private String mRecipeId;
 
     public RecipeDetailsFragment() {
@@ -48,7 +49,7 @@ public class RecipeDetailsFragment extends Fragment implements RecipeDetailsRetr
         mViewInstructionsBtn = (Button) view.findViewById(R.id.instructions_btn);
         mViewOriginalBtn = (Button) view.findViewById(R.id.original_btn);
         mPublisherTV = (TextView) view.findViewById(R.id.publisher_txt);
-        mSocialScoteTV = (TextView) view.findViewById(R.id.social_rank_txt);
+        mSocialRankTV = (TextView) view.findViewById(R.id.social_rank_txt);
         if (mRecipeId != null) {
             applyRecipe(mRecipeId);
         }
@@ -67,7 +68,7 @@ public class RecipeDetailsFragment extends Fragment implements RecipeDetailsRetr
         mPublisherTV.setText(recipe.getPublisher());
         StringBuilder socialRank = new StringBuilder(getString(R.string.social_rank));
         socialRank.append(": ").append(recipe.getSocialRank());
-        mSocialScoteTV.setText(socialRank.toString());
+        mSocialRankTV.setText(socialRank.toString());
         mViewOriginalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

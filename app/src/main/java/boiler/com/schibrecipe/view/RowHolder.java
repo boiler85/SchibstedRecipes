@@ -12,7 +12,7 @@ import com.android.volley.toolbox.NetworkImageView;
 import boiler.com.schibrecipe.R;
 import boiler.com.schibrecipe.utils.ImageLoaderSingleton;
 
-// View representation of a single row
+// View representation of a single row in recipes list
 public class RowHolder extends RecyclerView.ViewHolder {
 
     private final NetworkImageView mThumbnail;

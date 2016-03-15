@@ -16,6 +16,7 @@ import boiler.com.schibrecipe.model.FullRecipe;
 import static com.android.volley.Request.Method.GET;
 import static com.android.volley.Response.Listener;
 
+// RecipeDetailsRetriever retrieves details about single recipe
 public class RecipeDetailsRetriever {
 
     private static final String WS_URL = "http://food2fork.com/api/get?key=b549c4c96152e677eb90de4604ca61a2";

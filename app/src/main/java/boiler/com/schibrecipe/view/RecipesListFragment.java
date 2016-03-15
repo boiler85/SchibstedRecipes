@@ -18,6 +18,7 @@ import boiler.com.schibrecipe.R;
 import boiler.com.schibrecipe.controller.RecipesListRetriever;
 import boiler.com.schibrecipe.model.Recipe;
 
+// Fragment for list of recipes view
 public class RecipesListFragment extends Fragment
         implements RecipesListRetriever.ModelReadyNotifier, RecyclerViewAdapter.AdapterListener {
 

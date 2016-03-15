@@ -20,6 +20,7 @@ import boiler.com.schibrecipe.model.Recipe;
 import static com.android.volley.Request.Method.*;
 import static com.android.volley.Response.Listener;
 
+// RecipesListRetriever retrieves the list of recipes
 public class RecipesListRetriever {
 
     private static final String WS_URL = "http://food2fork.com/api/search?key=b549c4c96152e677eb90de4604ca61a2";

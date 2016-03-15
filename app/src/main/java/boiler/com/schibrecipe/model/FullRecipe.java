@@ -2,7 +2,7 @@ package boiler.com.schibrecipe.model;
 
 import java.util.ArrayList;
 
-// Model representation of a single Full Recipe
+// Model representation of extended Recipe with more details like ingredients
 public class FullRecipe extends Recipe {
 
     protected final String mPublisher;
