@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import boiler.com.schibrecipe.R;
-import boiler.com.schibrecipe.controller.DataRetriever;
+import boiler.com.schibrecipe.controller.RecipesListRetriever;
 import boiler.com.schibrecipe.model.Recipe;
 
 public class RecipesListFragment extends Fragment
-        implements DataRetriever.ModelReadyNotifier, RecyclerViewAdapter.AdapterListener {
+        implements RecipesListRetriever.ModelReadyNotifier, RecyclerViewAdapter.AdapterListener {
 
-    private final RecipesListListener mRecipesListListener;
-    private DataRetriever mDataRetriever;
+    private RecipesListListener mRecipesListListener;
+    private RecipesListRetriever mRecipesListRetriever;
     private RecyclerView mRecyclerView;
     private List<Recipe> mRecipes;
     private RecyclerViewAdapter mAdapter;
@@ -40,17 +40,15 @@ public class RecipesListFragment extends Fragment
             mSearch = s.toString();
             mAdapter.clear();
             mPage = 0;
-            mDataRetriever.getRecipes(mSearch, mPage++);
+            mRecipesListRetriever.getRecipes(mSearch, mPage++);
         }
     };
 
     public RecipesListFragment() {
         super();
-        mRecipesListListener = null;
     }
 
-    public RecipesListFragment(RecipesListListener listener) {
-        super();
+    public void setRecipesListListener(RecipesListListener listener) {
         mRecipesListListener = listener;
     }
 
@@ -62,10 +60,10 @@ public class RecipesListFragment extends Fragment
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapter = new RecyclerViewAdapter(getActivity(), mRecipes, this);
         mRecyclerView.setAdapter(mAdapter);
-        mDataRetriever = new DataRetriever(this, getActivity());
+        mRecipesListRetriever = new RecipesListRetriever(this, getActivity());
         mPage = 0;
         mSearch = "";
-        mDataRetriever.getRecipes(mSearch, mPage++);
+        mRecipesListRetriever.getRecipes(mSearch, mPage++);
         EditText searchEdit = (EditText) view.findViewById(R.id.search);
         searchEdit.addTextChangedListener(mTextWatcher);
         return view;
@@ -78,7 +76,7 @@ public class RecipesListFragment extends Fragment
 
     @Override
     public void endOfScrollDetected() {
-        mDataRetriever.getRecipes(mSearch, mPage++);
+        mRecipesListRetriever.getRecipes(mSearch, mPage++);
     }
 
     @Override

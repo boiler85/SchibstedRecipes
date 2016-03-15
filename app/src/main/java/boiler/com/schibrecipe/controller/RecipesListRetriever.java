@@ -20,7 +20,7 @@ import boiler.com.schibrecipe.model.Recipe;
 import static com.android.volley.Request.Method.*;
 import static com.android.volley.Response.Listener;
 
-public class DataRetriever {
+public class RecipesListRetriever {
 
     private static final String WS_URL = "http://food2fork.com/api/search?key=b549c4c96152e677eb90de4604ca61a2";
     private static final String PAGE = "&page=";
@@ -28,7 +28,7 @@ public class DataRetriever {
     private final ModelReadyNotifier mModelReadyNotifier;
     private final Context mContext;
 
-    public DataRetriever(ModelReadyNotifier modelReadyNotifier, Context context) {
+    public RecipesListRetriever(ModelReadyNotifier modelReadyNotifier, Context context) {
         mModelReadyNotifier = modelReadyNotifier;
         mContext = context;
     }

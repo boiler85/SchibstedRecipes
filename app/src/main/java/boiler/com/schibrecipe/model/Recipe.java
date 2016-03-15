@@ -3,9 +3,9 @@ package boiler.com.schibrecipe.model;
 // Model representation of a single Recipe
 public class Recipe {
 
-    private final String mTitle;
-    private final String mImageUrl;
-    private final String mId;
+    protected final String mTitle;
+    protected final String mImageUrl;
+    protected final String mId;
 
     public Recipe(String title, String thumbnail, String id) {
         mTitle = title;
